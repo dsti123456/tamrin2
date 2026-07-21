@@ -35,7 +35,7 @@
     <!-- بخش اصلی وبلاگ -->
     <main class="main container">
 
-        <!-- پست ویژه با تصویر -->
+        <!-- پست ویژه با ویدیو -->
         <article class="post featured">
             <div class="post__badge">🔥 جدیدترین</div>
             <h2 class="post__title">IESTM؛ مسیری برای ساختن، یادگرفتن و رشد کردن</h2>
@@ -53,6 +53,53 @@
             </p>
             <a href="#" class="btn btn--primary">مشاهده همه پروژه‌ها</a>
         </article>
+
+        <!-- ===== بخش ویدیو با پلیر یوتیوبی ===== -->
+        <section class="section video-section">
+            <h2 class="section__title">🎬 ویدیوی ویژه</h2>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video id="customVideo" class="custom-video" poster="1.png">
+                        <source src="Firefly A person is jogging through a serene forest, dressed in a green hoodie and black running pan.mp4" type="video/mp4" />
+                        مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                    </video>
+                    
+                    <!-- کنترل‌های سفارشی شبیه یوتیوب -->
+                    <div class="video-controls">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                            <div class="progress-handle" id="progressHandle"></div>
+                        </div>
+                        <div class="controls-bottom">
+                            <div class="controls-left">
+                                <button class="control-btn" id="playPauseBtn">
+                                    <svg class="control-icon" viewBox="0 0 24 24">
+                                        <polygon points="5,3 19,12 5,21" fill="currentColor" id="playIcon"/>
+                                        <rect x="6" y="4" width="4" height="16" fill="currentColor" id="pauseIconLeft" style="display:none"/>
+                                        <rect x="14" y="4" width="4" height="16" fill="currentColor" id="pauseIconRight" style="display:none"/>
+                                    </svg>
+                                </button>
+                                <span class="time-display" id="timeDisplay">۰:۰۰ / ۰:۰۰</span>
+                            </div>
+                            <div class="controls-right">
+                                <button class="control-btn" id="volumeBtn">
+                                    <svg class="control-icon" viewBox="0 0 24 24">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/>
+                                        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="currentColor" id="volumeHigh"/>
+                                        <path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" fill="currentColor" id="volumeLow" style="display:none"/>
+                                    </svg>
+                                </button>
+                                <button class="control-btn" id="fullscreenBtn">
+                                    <svg class="control-icon" viewBox="0 0 24 24">
+                                        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- محصولات شاخص با تصویر -->
         <section class="section">
