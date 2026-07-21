@@ -6,19 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.btn, .nav__link, .social-link');
     buttons.forEach(btn => {
         btn.addEventListener('click', function(e) {
-            // جلوگیری از تغییر صفحه برای نمایش افکت
             if (!this.href || this.href.startsWith('#')) {
                 e.preventDefault();
             }
             
-            // افکت کلیک
             this.style.transition = 'transform 0.1s';
             this.style.transform = 'scale(0.94)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
             }, 120);
 
-            // نمایش نوتیفیکیشن
             let message = '';
             if (this.classList.contains('btn--primary')) {
                 message = '📂 در حال باز کردن لیست پروژه‌ها...';
@@ -42,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== ۳. کارت‌های محصول: جلوه هاور با جی‌اس =====
+    // ===== ۳. افکت هاور روی کارت‌ها =====
     const cards = document.querySelectorAll('.product-card, .post.featured, .timeline__item');
     cards.forEach(card => {
         card.addEventListener('mouseenter', () => {
@@ -50,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== ۴. دابل کلیک روی هدر برای اسکرول به بالا =====
+    // ===== ۴. دابل کلیک روی هدر برای اسکرول =====
     const header = document.querySelector('.header');
     if (header) {
         header.addEventListener('dblclick', () => {
@@ -59,11 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== ۵. نمایش نقل‌قول با افکت تایپ =====
+    // ===== ۵. انیمیشن نقل‌قول =====
     const quote = document.querySelector('.quote');
     if (quote) {
-        const originalText = quote.innerHTML;
-        // فقط برای جلوه، متن رو مخفی و دوباره نمایش می‌دیم
         quote.style.opacity = '0';
         quote.style.transform = 'translateY(20px)';
         quote.style.transition = 'all 0.8s ease';
@@ -74,9 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 
-    // ===== ۶. تابع نمایش نوتیفیکیشن =====
+    // ===== ۶. تابع نوتیفیکیشن =====
     function showNotification(text) {
-        // حذف نوتیف قبلی
         const oldNote = document.querySelector('.custom-notif');
         if (oldNote) oldNote.remove();
 
@@ -84,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         notif.className = 'custom-notif';
         notif.textContent = text;
         
-        // استایل‌های نوتیف با تم IESTM
         Object.assign(notif.style, {
             position: 'fixed',
             bottom: '30px',
@@ -109,13 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.body.appendChild(notif);
 
-        // نمایش با انیمیشن
         requestAnimationFrame(() => {
             notif.style.opacity = '1';
             notif.style.transform = 'translateX(-50%) translateY(0)';
         });
 
-        // حذف خودکار بعد از ۲.۵ ثانیه
         setTimeout(() => {
             notif.style.opacity = '0';
             notif.style.transform = 'translateX(-50%) translateY(20px)';
@@ -128,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showNotification('🚀 به وبلاگ رسمی IESTM خوش آمدید!');
     }, 800);
 
-    // ===== ۸. نمایش تاریخ امروز در کنسول =====
+    // ===== ۸. نمایش تاریخ =====
     const now = new Date();
     console.log(`📅 تاریخ امروز: ${now.toLocaleDateString('fa-IR')}`);
 });
